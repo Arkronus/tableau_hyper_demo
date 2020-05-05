@@ -1,4 +1,5 @@
 # https://help.tableau.com/current/api/hyper_api/en-us/reference/sql/sql.html
+# https://github.com/tableau/hyper-api-samples
 
 from pathlib import Path
 
