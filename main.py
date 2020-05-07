@@ -1,6 +1,4 @@
-import zipfile
 import os
-import sys
 import glob
 import shutil
 import argparse
@@ -19,12 +17,9 @@ folder_name = os.path.splitext(filename)[0]
 currentDirectory = os.getcwd()
 
 # Файл twbx - архив zip, который можно распаковать с помощью любого архиватора
-
-with zipfile.ZipFile(filename,"r") as zip_ref:
-    zip_ref.extractall(folder_name)
+shutil.unpack_archive(filename, extract_dir=folder_name, format='zip')
 
 path_to_extract = glob.glob(currentDirectory + '/' + folder_name + '/**/*.hyper', recursive=True)[0]
-
 
 # получаем данные после нужной нам даты
 data = DBWrapper().get_new_data(date)
